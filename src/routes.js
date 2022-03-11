@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Setting from './screens/profile/setting';
 import Shop from './screens/home/shop';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
+import Sidebar from './components/drawer';
 const Drawer = createDrawerNavigator();
 
 const Tab = createBottomTabNavigator();
@@ -46,7 +46,9 @@ const BottonTab = ()=>{
 
 function MyDrawer() {
     return (
-        <Drawer.Navigator  >
+        <Drawer.Navigator drawerContent={props => <Sidebar {...props} />}
+        
+        >
             <Drawer.Screen name="BottonTab" component={BottonTab} />
             <Drawer.Screen name="ShopScreen" component={Shop} />
         </Drawer.Navigator>
